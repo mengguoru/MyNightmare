@@ -19,8 +19,7 @@ public class SpawnController : MonoBehaviour {
         //Debug.Log(targetDown);
 
         monster = Resources.Load("Prefabs/Monster", typeof(GameObject)) as GameObject;
-        Debug.Log(monster.GetComponent<MeshCollider>().bounds);
-        InstantiateRandomPosition(monster, 1, 0f);
+        InstantiateRandomPosition(monster, 1, 1f);
     }
 
     public void InstantiateRandomPosition(GameObject theOrgin,int mount,float addHeight)
