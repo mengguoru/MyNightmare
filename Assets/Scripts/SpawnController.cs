@@ -7,6 +7,9 @@ public class SpawnController : MonoBehaviour {
     float targetLeft, targetRight, targetTop, targetDown;
     public GameObject monster;
 
+    float monsterDelay = 3f;
+    float timer;
+
     // Use this for initialization
     void Start () {
         //Debug.Log(target.transform.position);
@@ -24,6 +27,19 @@ public class SpawnController : MonoBehaviour {
         InstantiateRandomPosition(obstacle1, 10, 0f);
         GameObject obstacle2 = Resources.Load("Prefabs/tree", typeof(GameObject)) as GameObject;
         InstantiateRandomPosition(obstacle2, 7, 0f);
+
+        timer = 0;
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+        if(timer>monsterDelay)
+        {
+            InstantiateRandomPosition(monster, 1, 1f);
+            timer = 0;
+        }
+
     }
 
     public void InstantiateRandomPosition(GameObject theOrgin,int mount,float addHeight)
