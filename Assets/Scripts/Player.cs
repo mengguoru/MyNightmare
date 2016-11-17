@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     public float speed = 0.2f;
@@ -31,6 +32,8 @@ public class Player : MonoBehaviour {
     {
         Debug.Log("beAttacked");
         health -= 20;
+        if (health <= 0)
+            SceneManager.LoadScene("End");
         healthTxt.text = "" + health;
     }
 
@@ -43,7 +46,17 @@ public class Player : MonoBehaviour {
 
     void callHealth()
     {
-        electricity -= 30;
+        if(100 == health)
+        {
+
+        }else if(health < 100)
+        {
+            electricity -= 30;
+            health += 10;
+            if (health > 100)
+                health = 100;
+        }
         elecTxt.text = "" + electricity;
+        healthTxt.text = "" + health;
     }
 }
