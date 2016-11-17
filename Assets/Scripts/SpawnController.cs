@@ -20,6 +20,10 @@ public class SpawnController : MonoBehaviour {
 
         monster = Resources.Load("Prefabs/Monster", typeof(GameObject)) as GameObject;
         InstantiateRandomPosition(monster, 1, 1f);
+        GameObject obstacle1 = Resources.Load("Prefabs/rock", typeof(GameObject)) as GameObject;
+        InstantiateRandomPosition(obstacle1, 10, 0f);
+        GameObject obstacle2 = Resources.Load("Prefabs/tree", typeof(GameObject)) as GameObject;
+        InstantiateRandomPosition(obstacle2, 7, 0f);
     }
 
     public void InstantiateRandomPosition(GameObject theOrgin,int mount,float addHeight)
