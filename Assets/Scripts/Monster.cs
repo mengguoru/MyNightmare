@@ -17,7 +17,7 @@ public class Monster : MonoBehaviour {
         if (Vector3.Distance(target.transform.position, transform.position) > closestDis)
         {
             Vector3 offset = target.transform.position - transform.position;
-            transform.Translate(offset.normalized *speed* Time.deltaTime);
+            transform.Translate(offset.normalized *speed * Time.deltaTime);
         }
     }
 }
