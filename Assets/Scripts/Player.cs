@@ -12,16 +12,29 @@ public class Player : MonoBehaviour {
     float electricity;
     public Text elecTxt;
 
+    float affectTimer;
+    float speed2 = 4f;
+    float speed0;
+
     // Use this for initialization
     void Start() {
         health = 100;
         healthTxt.text = "" + health;
         electricity = 100;
         elecTxt.text = ""+electricity;
+
+        affectTimer = 5.1f;
+        speed0 = speed;
     }
 
     // Update is called once per frame
     void Update() {
+        affectTimer += Time.deltaTime;
+        if (affectTimer < 5f)
+            speed = speed2;
+        else
+            speed = speed0;
+
         float hori = CrossPlatformInputManager.GetAxis("Horizontal") * speed * Time.deltaTime;
         //Debug.Log(hori);
         float veri = CrossPlatformInputManager.GetAxis("Vertical") * speed * Time.deltaTime;
@@ -42,6 +55,7 @@ public class Player : MonoBehaviour {
         electricity -= 5;
         //Debug.Log("elec:"+electricity);
         elecTxt.text = "" + electricity;
+        affectTimer = 0f;
     }
 
     void callHealth()
