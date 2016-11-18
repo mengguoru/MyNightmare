@@ -10,9 +10,19 @@ public class End : MonoBehaviour {
         //Debug.Log(PlayerPrefs.GetFloat("currentLive"));
         float currentScore = PlayerPrefs.GetFloat("currentLive");
         if (currentScore > PlayerPrefs.GetFloat("first"))
+        {
+            float tmp = PlayerPrefs.GetFloat("first");
             PlayerPrefs.SetFloat("first", currentScore);
+            float tmp2 = PlayerPrefs.GetFloat("second");
+            PlayerPrefs.SetFloat("second", tmp);
+            PlayerPrefs.SetFloat("third", tmp2);
+        }
         else if(currentScore > PlayerPrefs.GetFloat("second"))
+        {
+            float tmp2 = PlayerPrefs.GetFloat("second");
             PlayerPrefs.SetFloat("second", currentScore);
+            PlayerPrefs.SetFloat("third", tmp2);
+        }
         else if (currentScore > PlayerPrefs.GetFloat("third"))
             PlayerPrefs.SetFloat("third", currentScore);
 
