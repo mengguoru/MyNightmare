@@ -17,6 +17,11 @@ public class UITime : MonoBehaviour {
         showTime();
 	}
 
+    void OnDestroy()
+    {
+        PlayerPrefs.SetFloat("currentLive", timer);
+    }
+
     void showTime()
     {
         float minutes = Mathf.Floor(timer / 60);
