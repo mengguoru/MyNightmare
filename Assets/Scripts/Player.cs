@@ -39,6 +39,9 @@ public class Player : MonoBehaviour {
         //Debug.Log(hori);
         float veri = CrossPlatformInputManager.GetAxis("Vertical") * speed * Time.deltaTime;
         transform.Translate(hori, 0, veri);
+
+        //for fieldOfView script
+        //transform.LookAt(new Vector3(hori, 0, veri)+ Vector3.up * transform.position.y);
     }
 
     void beAttacked()
@@ -52,10 +55,13 @@ public class Player : MonoBehaviour {
 
     void callSpeed()
     {
-        electricity -= 5;
         //Debug.Log("elec:"+electricity);
         elecTxt.text = "" + electricity;
-        affectTimer = 0f;
+        if (electricity > 0)
+        {
+            affectTimer = 0f;
+            electricity -= 5;
+        }
     }
 
     void callHealth()
