@@ -11,4 +11,11 @@ public class StartScene : MonoBehaviour {
     {
         SceneManager.LoadScene("rankingList");
     }
+    void aboutUs()
+    {
+        SceneManager.LoadScene("aboutUs");
+    }
+    void story(){
+        SceneManager.LoadScene("story");
+    }
 }
