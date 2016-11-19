@@ -57,7 +57,7 @@ public class Player : MonoBehaviour {
     {
         //Debug.Log("elec:"+electricity);
         elecTxt.text = "" + electricity;
-        if (electricity > 0)
+        if (electricity > 0 && affectTimer > 5f)
         {
             affectTimer = 0f;
             electricity -= 5;
