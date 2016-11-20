@@ -66,15 +66,19 @@ public class Player : MonoBehaviour {
 
     void callHealth()
     {
-        if(100 == health)
+        if (electricity > 30)
         {
+            if (100 == health)
+            {
 
-        }else if(health < 100)
-        {
-            electricity -= 30;
-            health += 10;
-            if (health > 100)
-                health = 100;
+            }
+            else if (health < 100)
+            {
+                electricity -= 30;
+                health += 10;
+                if (health > 100)
+                    health = 100;
+            }
         }
         elecTxt.text = "" + electricity;
         healthTxt.text = "" + health;
