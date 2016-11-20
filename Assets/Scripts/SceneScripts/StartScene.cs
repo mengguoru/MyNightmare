@@ -18,4 +18,8 @@ public class StartScene : MonoBehaviour {
     void story(){
         SceneManager.LoadScene("story");
     }
+    void help()
+    {
+        SceneManager.LoadScene("help");
+    }
 }
