@@ -16,6 +16,9 @@ public class Player : MonoBehaviour {
     float speed2 = 4f;
     float speed0;
 
+    public AudioClip hitAudio;
+    AudioSource audio;
+
     // Use this for initialization
     void Start() {
         health = 100;
@@ -25,6 +28,8 @@ public class Player : MonoBehaviour {
 
         affectTimer = 5.1f;
         speed0 = speed;
+
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,7 +51,8 @@ public class Player : MonoBehaviour {
 
     void beAttacked()
     {
-        Debug.Log("beAttacked");
+        audio.PlayOneShot(hitAudio, 1f);
+        //Debug.Log("beAttacked");
         health -= 20;
         if (health <= 0)
             SceneManager.LoadScene("End");
